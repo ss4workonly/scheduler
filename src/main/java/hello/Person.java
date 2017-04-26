@@ -14,6 +14,11 @@ public class Person {
 
 	private String firstName;
 	private String lastName;
+	private String email;
+
+	public long getId() {
+		return id;
+	}
 
 	public String getFirstName() {
 		return firstName;
@@ -30,4 +35,13 @@ public class Person {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 }

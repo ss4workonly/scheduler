@@ -18,34 +18,40 @@ public class Event {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @Temporal(TIMESTAMP)
-    private Date created;
+    @Version
+    @Column(name = "VERSION")
+    private Integer version;
 
-    @Temporal(TIME)
-    private Date duration;
+    private Long started;
+
+    private Long ended;
 
     private String title;
 
     @Enumerated
     private Style style;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    public long getId() {
+        return id;
+    }
+
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Person> people = new ArrayList<>();
 
-    public Date getCreated() {
-        return created;
+    public Long getStarted() {
+        return started;
     }
 
-    public void setCreated(Date created) {
-        this.created = created;
+    public void setStarted(Long started) {
+        this.started = started;
     }
 
-    public Date getDuration() {
-        return duration;
+    public Long getEnded() {
+        return ended;
     }
 
-    public void setDuration(Date duration) {
-        this.duration = duration;
+    public void setEnded(Long ended) {
+        this.ended = ended;
     }
 
     public String getTitle() {
@@ -71,4 +77,5 @@ public class Event {
     public void setPeople(List<Person> people) {
         this.people = people;
     }
+
 }
