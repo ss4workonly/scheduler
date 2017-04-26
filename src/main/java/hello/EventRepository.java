@@ -10,5 +10,6 @@ import java.util.List;
 public interface EventRepository extends PagingAndSortingRepository<Event, Long> {
 
     List<Event> findByStartedBetween(@Param("started") Long started, @Param("ended") Long ended);
+    List<Event> findById(@Param("id") Long id);
 
 }
